@@ -7,17 +7,17 @@ def do_chop(element, list, start, finish)
   return -1 if length == 0
   return ((list.include? element) ? start : -1) if length == 1
 
-  middleIndex = length / 2
-  middleElement = list[middleIndex+start]
+  middleIndex = start + length/2
+  middleElement = list[middleIndex]
   if (element == middleElement)
-    return middleIndex + start
+    return middleIndex
   end
 
   if element < middleElement
-    return do_chop(element, list, start, middleIndex+start)
+    return do_chop(element, list, start, middleIndex)
   end
 
   if element > middleElement
-    return do_chop(element, list, middleIndex+start, finish)
+    return do_chop(element, list, middleIndex, finish)
   end
 end
