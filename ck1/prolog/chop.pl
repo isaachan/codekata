@@ -7,8 +7,8 @@ chop(-1, _,  [], _, _).
 chop( 0, E, [E], _, _).
 chop(-1, _, [_], _, _).
 
-chop(MiddleIndex, MiddleElement, List, Start, End) :-
-  middleElement(MiddleElement, MiddleIndex, List, Start, End).
+chop(Index, Element, List, Start, End) :-
+  middleElement(Element, Index, List, Start, End).
 
 chop(Index, E, List, Start, End) :-
   middleElement(MiddleElement, MiddleIndex, List, Start, End),
@@ -24,6 +24,5 @@ indexOf(E, 0, [E|_]) :- !.
 indexOf(E, N, [_|R]) :- N1 is N-1, indexOf(E, N1, R), !.
 
 middleElement(Element, Index, List, Start, End) :-
-  Length is End - Start,
-  Index is div(Length, 2) + Start,
+  Index is div((End-Start), 2) + Start,
   indexOf(Element, Index, List).
