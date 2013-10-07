@@ -9,15 +9,10 @@ def do_chop(element, list, start, finish)
 
   middleIndex = start + length/2
   middleElement = list[middleIndex]
-  if (element == middleElement)
-    return middleIndex
-  end
+  
+  return middleIndex if element == middleElement
 
-  if element < middleElement
-    return do_chop(element, list, start, middleIndex)
-  end
-
-  if element > middleElement
-    return do_chop(element, list, middleIndex, finish)
-  end
+  return element < middleElement ?
+    do_chop(element, list, start, middleIndex) :
+    do_chop(element, list, middleIndex, finish)
 end
