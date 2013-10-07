@@ -1,10 +1,11 @@
-chop(-1, _, []).
-chop(0, E, [E]).
-chop(-1, _, [_]).
 
 chop(Index, E, List) :-
   length(List, Length),
   chop(Index, E, List, 0, Length).
+
+chop(-1, _,  [], _, _).
+chop( 0, E, [E], _, _).
+chop(-1, _, [_], _, _).
 
 chop(MiddleIndex, MiddleElement, List, Start, End) :-
   Length is End - Start, 
