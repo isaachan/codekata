@@ -7,5 +7,6 @@ class ChopTest < Test::Unit::TestCase
     assert_equal(0, chop(10, [10]))
     assert_equal(-1, chop(1, [10]))
     assert_equal(1, chop(11, [10, 11]))
+    assert_equal(1, chop(11, [10, 11, 12, 13, 14]))
   end
 end
