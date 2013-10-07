@@ -1,5 +1,6 @@
 chop(-1, _, []).
 chop(0, E, [E]).
+chop(-1, _, [_]).
 
 chop(Index, E, List) :-
   length(List, Length),
