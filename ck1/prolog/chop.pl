@@ -1,8 +1,12 @@
 chop(-1, _, []).
 chop(0, E, [E]).
 
-chop(MiddleIndex, E, List) :- ,
+chop(Index, E, List) :-
   length(List, Length),
+  chop(Index, E, List, 0, Length).
+
+chop(MiddleIndex, E, List, Start, End) :-
+  Length is End -Start,
   MiddleIndex is Length / 2,
   indexOf(MiddleElement, MiddleIndex, List).
 
